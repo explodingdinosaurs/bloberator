@@ -22,6 +22,7 @@
   program bloberator
     
     use md_mod
+    use bloberator_mod
     
     implicit none
 
@@ -67,7 +68,7 @@
     call cpu_time(total_start)
     
     ! Open, read and close config file
-    call process_commandline(conf_filename)
+    call process_commandline_conf_file(conf_filename)
     call open_input_file_stop_if_not_found(CONF_UNIT, conf_filename)
     call read_conf_file(CONF_UNIT, pqr_filename1, pqr_filename2, &
          cutoff_dist, grid_spacing, theta, phi, gamma, overlap_dist,&
